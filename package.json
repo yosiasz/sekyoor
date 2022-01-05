@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "sekyoor",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,5 +34,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yosiasz/sekyoor.git"
+  },
+  "keywords": [
+    "nist",
+    "cyber",
+    "security"
+  ],
+  "author": "Josiah Solomon, Jadon Parker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yosiasz/sekyoor/issues"
+  },
+  "homepage": "https://github.com/yosiasz/sekyoor#readme"
 }
