@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 
 import './App.css';
 import List from './components/List';
+import MenuAppBar from './components/AppBar';
 
 export interface IState {
   people: {
@@ -33,9 +34,7 @@ function App() {
 
   return (
     <div className="App">
-      <AppBar position="static">
-        <Toolbar>Security Management System</Toolbar>
-      </AppBar>
+      <MenuAppBar></MenuAppBar>
       <header className="App-header">
         <List people={people} />
         <Switch>
