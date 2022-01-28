@@ -1,4 +1,5 @@
 import React, { StrictMode, useEffect, useState } from 'react';
+import { useQuery, gql } from "@apollo/client";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 
@@ -8,12 +9,22 @@ import MenuAppBar from './components/AppBar';
 
 export interface IState {
   people: {
+      id: number,
       name: string
       age: number
       img: string
       note?: string
   }[]
 }
+
+const FunctionsQuery = gql`
+  {
+    launchesPast(limit: 10) {
+      id
+      mission_name
+    }
+  }
+`;
 
 function App() {
 

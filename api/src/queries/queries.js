@@ -1,21 +1,21 @@
 
 require("dotenv").config();
+const sql = require('mysql2/promise');
+const config = require('../config/config');
 
-async function  getFunctions(context) {
+async function getFunctions() {
     try {        
 
-        const data = await context.mongo
-        .db("sekyoor")
-        .collection("functions")
-        .find()
-        .map(({ _id, ...secfunctions }) => ({ ...secfunction, id: _id }))
-        .toArray();
-  
-        return data;        
+        const connection = await sql.createConnection(config.sekyoor);
+        const [results, ] = await connection.execute('SELECT * FROM nistfunctions');
+        
+        return results
+
     } catch (err) {
         console.dir(err);
     } 
 }
+
 module.exports = {
     getFunctions: getFunctions
 }

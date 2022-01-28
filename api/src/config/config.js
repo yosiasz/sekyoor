@@ -3,7 +3,10 @@ dotenv.config();
 
 module.exports = {
   sekyoor: { 
-    serverurl: process.env.SERVER_URL,
-    dbString: process.env.DB_STRING,
+    host: process.env.SERVER,
+    port: process.env.PORT,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DB
   }
 };

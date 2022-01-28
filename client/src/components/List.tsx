@@ -12,7 +12,7 @@ const List: React.FC<IProps> = ({ people }) => {
         return people.map(person => {
             return (
                 
-                <li className="List">
+                <li className="List" key={person.id}>
                     <div className="List-header">
                         <h2>{person.name}</h2>
                     </div>

@@ -1,51 +1,18 @@
 const express = require('express');
-const graphqlHTTP = require('express-graphql');
+var cors = require('cors')
+const { graphqlHTTP } = require('express-graphql');
+
 const schema = require('./schema/schema.js');
-const fs = require('fs');
-const MongoClient = require('mongodb').MongoClient
-
-const connectToDatabase = async () => {
-  const client = new MongoClient(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-  });
-
-  let cachedConnection;
-
-  if (cachedConnection) return cachedConnection;
-
-  try {
-    const connection = await client.connect();
-
-    cachedConnection = connection;
-
-    return connection;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 
 const app = express();
+app.use(cors());
 
-/* app.use('/graphql', graphqlHTTP({
-  schema:schema,
-  graphiql,
-  context: {
-    mongo,
-  },
-}));
- */
 app.use(
-  "/graphql",
+  '/graphql',
   graphqlHTTP(async () => {
-    const mongo = await connectToDatabase();
-
     return {
       schema,
-      graphiql: true,
-      context: {
-        mongo,
-      },
+      graphiql: true
     };
   })
 );

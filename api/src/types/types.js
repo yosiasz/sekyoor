@@ -6,14 +6,15 @@ const {
     GraphQLString,
     GraphQLID,
     GraphQLList,
+    GraphQLInt
 } = graphql;
 
 const FunctionType = new GraphQLObjectType({
     name: 'Functions',
     fields:() => ({
-        id: {type: GraphQLID},
         functioncode: {type:GraphQLString},
-        functioname: {type:GraphQLString},
+        functionname: {type:GraphQLString},
+        sortOrder: {type:GraphQLInt}
     })
 });
 

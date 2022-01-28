@@ -2,7 +2,7 @@ const graphql = require('graphql');
 const { getFunctions } = require('../queries/queries');
 const { FunctionType } = require('../types/types');
 
-let assets = [];
+let nistfunctions = [];
 
 const {
     GraphQLObjectType,
@@ -19,11 +19,11 @@ const {
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields:{
-        functions:{
-            type: GraphQLList(FunctionType),
+        nistfunctions:{
+            type: new GraphQLList(FunctionType),
             resolve(parentValue, args){
-                functions = getFunctions();
-                return functions;
+                nistfunctions = getFunctions();
+                return nistfunctions;
             }
         }                  
     }
